@@ -34,7 +34,8 @@ app.get('/foo', YUI.expose(), function (req, res, next) {
 
 // locator initialiation
 new Locator({
-    buildDirectory: 'build'
+    buildDirectory: 'build',
+    bundleBuildDirectoryParser: function (bundle) { return bundle.name; }
 })
     .plug(LocatorHandlebars.yui())
     .plug(LocatorMicro.yui())
@@ -45,10 +46,12 @@ new Locator({
     }))
     .parseBundle(__dirname, {}).then(function (have) {
 
+
         // listening for traffic only after locator finishes the walking process
         app.listen(3000, function () {
             console.log("Server listening on port 3000");
         });
+//console.log('have', JSON.stringify(have, null, 2));
 
     }, function (e) {
         console.log(e);
