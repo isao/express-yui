@@ -15,7 +15,7 @@
         "express-combo": "0.1.x",
         "express-state": "~1.0.0",
         "mkdirp": "*",
-        "hashsome": "~0.0.1",
+        "hashsome": "~0.1.0",
         "shifter": "*",
         "win-spawn": "*",
         "debug": "*"
